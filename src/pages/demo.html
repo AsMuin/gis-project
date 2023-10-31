@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/gis-project/node_modules/vue/dist/vue.global.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.27/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.27/"></script>
+    <script>
+      require(["esri/config", "esri/Map", "esri/views/MapView"], function (
+        esriConfig,
+        Map,
+        MapView
+      ) {
+        esriConfig.apiKey =
+          "AAPK2a7b45ed56924ae4b2614a192db5d5d8f3dOTlYK3Ewv8lxGc99XfODBXtwV_s_EkNDqOpIo0QAjznmjt7I4r83fubeq9Y67";
+
+        const map = new Map({
+          basemap: "arcgis-topographic",
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027],
+          zoom: 13,
+          container: "map",
+          viewMode: "3D",
+          pitch: 55,
+        });
+      });
+     
+     
+
+
+    </script>
+  </head>
+  <style>
+    html,
+    body,
+    #map {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <body>
+    <div id="map"></div>
+    
+  </body>
+</html>
