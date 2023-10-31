@@ -68,7 +68,7 @@
   </el-container>
 </template>
 <script  setup lang="ts">
-import MapView from "../project/MapView.vue";
+import MapView from "../components/MapView.vue";
 import { ref, reactive, provide, onMounted,onBeforeUnmount,onUpdated} from "vue";
 import {
   Document,
