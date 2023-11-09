@@ -1,28 +1,28 @@
 <template>
-    <div id="sceneview"></div>
+  <div id="sceneview"></div>
 </template>
 
 <script setup>
-import Map from '@arcgis/core/Map';
+import Map from "@arcgis/core/Map";
 import SceneView from "@arcgis/core/views/SceneView";
-import TileLayer from '@arcgis/core/layers/TileLayer';
-import { onMounted } from 'vue';
-import esriConfig from "@arcgis/core/config"; 
+import TileLayer from "@arcgis/core/layers/TileLayer";
+import { onMounted, ref } from "vue";
+import esriConfig from "@arcgis/core/config";
 esriConfig.assetsPath = "./assets";
 onMounted(() => {
-   CreateView();
-})
+  CreateView();
+});
 function CreateView() {
-    let custommap = new TileLayer({
-        url: "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer",
-    })
-    esriConfig.apiKey =
+  let custommap = new TileLayer({
+    url: "http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer",
+  });
+  esriConfig.apiKey =
     "AAPK2a7b45ed56924ae4b2614a192db5d5d8f3dOTlYK3Ewv8lxGc99XfODBXtwV_s_EkNDqOpIo0QAjznmjt7I4r83fubeq9Y67";
-const map = new Map({
+  const map = new Map({
     layers: custommap,
     ground: "world-elevation",
-})
-const view = new SceneView({
+  });
+  const view = new SceneView({
     map: map,
     zoom: 13,
     center: [116, 40],
@@ -34,13 +34,22 @@ const view = new SceneView({
     //     },
     //     tilt: 75
     //   },
-    container:'sceneview',
+    container: "sceneview",
+  });
+  view.when(function() {
+  // MapView is now ready for display and can be used. Here we will
+  // use goTo to view a particular location at a given zoom level and center
+  view.goTo({
+    center: [-112, 38],
+    zoom: 12
+  });
 })
 }
+
 </script>
 
-<style >
-#sceneview{
+<style>
+#sceneview {
   position: relative;
   width: 100%;
   height: 100%;

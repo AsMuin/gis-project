@@ -6,11 +6,7 @@
         <el-row class="tac">
           <el-col :span="12">
             <h2 class="mb-2"></h2>
-            <el-menu
-              default-active="2"
-              class="el-menu-vertical-demo"
-                 
-            >
+            <el-menu default-active="2" class="el-menu-vertical-demo">
               <el-sub-menu index="1">
                 <template #title>
                   <el-icon><icon-menu /></el-icon>
@@ -29,7 +25,8 @@
                     >DataVisual(Population)</el-menu-item
                   >
                 </el-menu-item-group>
-                <el-menu-item index="1-4" @click="toSceneView">SceneView
+                <el-menu-item index="1-4" @click="toSceneView"
+                  >SceneView
                 </el-menu-item>
               </el-sub-menu>
               <el-sub-menu index="2">
@@ -61,13 +58,19 @@
           </el-col>
         </el-row>
       </el-aside>
-      <el-main><RouterView></RouterView></el-main>
+      <el-main><router-view></router-view></el-main>
     </el-container>
   </el-container>
 </template>
-<script  setup lang="ts">
-import MapView from "../components/MapView.vue";
-import { ref, reactive, provide, onMounted,onBeforeUnmount,onUpdated} from "vue";
+<script setup lang="ts">
+import {
+  ref,
+  reactive,
+  provide,
+  onMounted,
+  onBeforeUnmount,
+  onUpdated,
+} from "vue";
 import {
   Document,
   Menu as IconMenu,
@@ -104,23 +107,22 @@ const toOneMap = () => {
     path: "/home/onemap",
   });
 };
-const toSceneView=() => {
-  console.log("toSceneView")
+const toSceneView = () => {
+  console.log("toSceneView");
   router.push({
     path: "/home/sceneview",
   });
-}
+};
 // const BeiJing = () => {
 //   provide("Place", [116, 40]);
 //   console.log("Home传送成功")
 // };
 //   provide("Place", [116, 40]);
-const mapCenter =ref ()
-const change =()=>{
-//  MapCenter.value.ChangePlace()
-console.log(mapCenter.value)
- 
-}
+const mapCenter = ref();
+const change = () => {
+  //  MapCenter.value.ChangePlace()
+  console.log(mapCenter.value);
+};
 </script>
 <style>
 html,

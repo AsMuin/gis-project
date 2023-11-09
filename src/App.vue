@@ -2,9 +2,8 @@
   <RouterView></RouterView>
 </template>
 <script lang="ts" setup>
-import { useRouter, useRoute } from "vue-router";
+import { useRouter, useRoute, RouterLink, RouterView } from "vue-router";
 import { onMounted } from "vue";
-import { RouterLink, RouterView } from "vue-router";
 const router = useRouter();
 const route = useRoute();
 onMounted(() => {ToHome()})
