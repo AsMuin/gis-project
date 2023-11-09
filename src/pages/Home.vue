@@ -29,9 +29,7 @@
                     >DataVisual(Population)</el-menu-item
                   >
                 </el-menu-item-group>
-                <el-menu-item index="1-4">
-                  <template #title>item four</template>
-                  <!-- <el-menu-item index="1-4-1">item one</el-menu-item> -->
+                <el-menu-item index="1-4" @click="toSceneView">SceneView
                 </el-menu-item>
               </el-sub-menu>
               <el-sub-menu index="2">
@@ -89,23 +87,29 @@ const route = useRoute();
 onMounted(() => {});
 // onUpdated(() => {BeiJing})
 function toMapView() {
-  console.log("1");
+  console.log("toMapView");
   router.push({
     path: "/home/mapview",
   });
 }
 function toDataVisual() {
-  console.log("1");
+  console.log("toDataVisual");
   router.push({
     path: "/home/datavisual",
   });
 }
 const toOneMap = () => {
-  console.log("2");
+  console.log("toOneMap");
   router.push({
     path: "/home/onemap",
   });
 };
+const toSceneView=() => {
+  console.log("toSceneView")
+  router.push({
+    path: "/home/sceneview",
+  });
+}
 // const BeiJing = () => {
 //   provide("Place", [116, 40]);
 //   console.log("Home传送成功")

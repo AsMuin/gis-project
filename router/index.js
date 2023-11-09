@@ -5,6 +5,7 @@ import DataVisual from "../src/components/DataVisual.vue";
 import MapView from "../src/components/MapView.vue";
 import { createRouter, createWebHashHistory, useRoute } from "vue-router";
 import Home from "../src/pages/Home.vue";
+import SceneView from "../src/components/SceneView.vue";
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
 // 我们后面再讨论嵌套路由。
@@ -32,6 +33,10 @@ const router = createRouter({
         {
           path: "datavisual",
           component: DataVisual,
+        },
+        {
+          path:"sceneview",
+          component:SceneView,
         },
       ],
     },
